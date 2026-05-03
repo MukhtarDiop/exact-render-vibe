@@ -86,15 +86,33 @@
   /* 3D Flip card */
   .flip-card {
     perspective: 1200px;
+    outline: none;
+    transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  .flip-card:hover,
+  .flip-card:focus-visible,
+  .flip-card.is-flipped {
+    transform: translateY(-4px);
+  }
+  .flip-card:focus-visible {
+    box-shadow: 0 0 0 3px hsl(var(--brown) / 0.35), var(--shadow-warm);
   }
   .flip-inner {
     position: relative;
     width: 100%;
+    height: 100%;
     transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
     transform-style: preserve-3d;
+    will-change: transform;
   }
   .flip-card.is-flipped .flip-inner {
     transform: rotateY(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner { transition: none; }
+    .flip-card { transition: none; }
   }
   .flip-face {
     backface-visibility: hidden;
