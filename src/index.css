@@ -42,8 +42,8 @@
 
     --radius: 12px;
 
-    --shadow-warm: 0 10px 30px -12px hsl(var(--brown) / 0.25);
-    --shadow-card: 0 6px 20px -8px hsl(var(--brown) / 0.2);
+    --shadow-warm: 0 14px 36px -12px hsl(var(--brown) / 0.45);
+    --shadow-card: 0 8px 24px -8px hsl(var(--brown) / 0.35);
   }
 }
 
@@ -97,7 +97,7 @@
     transform: translateY(-4px);
   }
   .flip-card:focus-visible {
-    box-shadow: 0 0 0 3px hsl(var(--brown) / 0.35), var(--shadow-warm);
+    box-shadow: 0 0 0 3px hsl(var(--brown) / 0.6), var(--shadow-warm);
   }
   .flip-inner {
     position: relative;
