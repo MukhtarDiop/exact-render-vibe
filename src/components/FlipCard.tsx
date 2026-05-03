@@ -6,17 +6,14 @@ export const FlipCard = ({ card }: { card: Flashcard }) => {
 
   return (
     <div
-      className={`flip-card ${flipped ? "is-flipped" : ""}`}
-      onClick={() => setFlipped((f) => !f)}
+      className={`flip-card group ${flipped ? "is-flipped" : ""}`}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+      onFocus={() => setFlipped(true)}
+      onBlur={() => setFlipped(false)}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          setFlipped((f) => !f);
-        }
-      }}
-      aria-label={`Carte ${card.number}: ${card.title}. Cliquer pour retourner.`}
+      aria-label={`Carte ${card.number}: ${card.title}. Survoler pour retourner.`}
     >
       <div className="flip-inner min-h-[320px] md:min-h-[360px]">
         {/* RECTO */}
