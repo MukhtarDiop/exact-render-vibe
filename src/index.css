@@ -87,14 +87,8 @@
   .flip-card {
     perspective: 1200px;
     outline: none;
-    transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
     border-radius: 12px;
     cursor: pointer;
-  }
-  .flip-card:hover,
-  .flip-card:focus-visible,
-  .flip-card.is-flipped {
-    transform: translateY(-4px);
   }
   .flip-card:focus-visible {
     box-shadow: 0 0 0 3px hsl(var(--brown) / 0.6), var(--shadow-warm);
@@ -105,24 +99,19 @@
     height: 100%;
     transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
     transform-style: preserve-3d;
-    will-change: transform;
   }
   .flip-card.is-flipped .flip-inner {
     transform: rotateY(180deg);
   }
   @media (prefers-reduced-motion: reduce) {
     .flip-inner { transition: none; }
-    .flip-card { transition: none; }
   }
   .flip-face {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: translate3d(0, 0, 0.01px);
-    -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
   .flip-back {
-    transform: rotateY(180deg) translate3d(0, 0, 0.01px);
+    transform: rotateY(180deg);
   }
 }
