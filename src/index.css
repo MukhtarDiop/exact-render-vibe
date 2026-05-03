@@ -117,8 +117,12 @@
   .flip-face {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0.01px);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
   }
   .flip-back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translate3d(0, 0, 0.01px);
   }
 }
