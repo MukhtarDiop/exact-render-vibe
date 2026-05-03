@@ -27,7 +27,7 @@ export const FlipCard = ({ card }: { card: Flashcard }) => {
             </h3>
           </div>
           <p className="italic text-cream/70 text-sm mt-6">
-            Clique sur la carte pour en savoir plus →
+            Survole la carte pour en savoir plus →
           </p>
         </div>
 
