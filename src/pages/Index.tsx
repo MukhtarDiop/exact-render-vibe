@@ -149,7 +149,7 @@ const Index = () => {
               Les 10 manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
-              Clique sur une carte pour la retourner
+              Survole une carte pour la retourner
             </p>
 
             {/* Business */}
