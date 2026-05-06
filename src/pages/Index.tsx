@@ -7,8 +7,19 @@ const Index = () => {
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [returning, setReturning] = useState(false);
   const principlesRef = useRef<HTMLElement | null>(null);
   const revealRefs = useRef<HTMLElement[]>([]);
+
+  // Auto-unlock for returning subscribers
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("ceo-ose-subscribed") === "true") {
+        setSubmitted(true);
+        setReturning(true);
+      }
+    } catch {}
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -16,6 +27,10 @@ const Index = () => {
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!valid) return setError("Merci d'entrer une adresse e-mail valide.");
     if (!consent) return setError("Tu dois accepter pour recevoir le guide.");
+    try {
+      localStorage.setItem("ceo-ose-subscribed", "true");
+      localStorage.setItem("ceo-ose-email", email);
+    } catch {}
     setSubmitted(true);
     setTimeout(() => {
       principlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -49,60 +64,94 @@ const Index = () => {
       {/* SECTION 1 — HERO */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-2xl">
-          <p className="text-center tracking-[0.4em] text-brown/70 uppercase text-xs mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
-            CEO Ose
+          <p className="text-center tracking-[0.45em] text-brown uppercase font-bold text-base md:text-xl mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
+            CEO OSE
           </p>
 
-          <h1 className="text-center font-serif text-4xl md:text-6xl leading-[1.05] text-brown">
+          <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
             10 manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
             (Promis, on ne parle pas de création de contenu)
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-12 space-y-5">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Ton adresse e-mail"
-              aria-label="Adresse e-mail"
-              className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
-            />
-
-            <label className="flex items-start gap-3 text-sm md:text-[15px] text-brown leading-relaxed cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                className="mt-1 w-5 h-5 accent-brown shrink-0"
-                aria-label="Consentement"
-              />
-              <span>
-                J'accepte de recevoir des communications par e-mail de la part de CEO Ose. Tu peux te désinscrire à tout moment.{" "}
-                <span className="italic text-brown/60">(Conformément à la Loi 25 du Québec)</span>
-              </span>
-            </label>
-
-            {error && (
-              <p className="text-red text-sm" role="alert">{error}</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={submitted}
-              className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300 disabled:opacity-70"
-            >
-              {submitted ? "C'est parti ! ✨" : "Accède au guide gratuit →"}
-            </button>
-
-            {submitted && (
-              <p className="text-center text-green italic mt-2">
-                C'est parti ! Découvre les 10 manières ci-dessous ↓
+          {returning ? (
+            <div className="mt-12 text-center space-y-5">
+              <p className="font-serif text-2xl md:text-3xl text-brown font-semibold">
+                Bon retour ! ✨
               </p>
-            )}
-          </form>
+              <p className="text-brown/70 italic">
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les 10 manières ci-dessous.
+              </p>
+              <button
+                type="button"
+                onClick={() => principlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300"
+              >
+                Accéder au guide ↓
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  try {
+                    localStorage.removeItem("ceo-ose-subscribed");
+                    localStorage.removeItem("ceo-ose-email");
+                  } catch {}
+                  setReturning(false);
+                  setSubmitted(false);
+                  setEmail("");
+                  setConsent(false);
+                }}
+                className="text-brown/60 text-sm underline hover:text-brown transition-colors"
+              >
+                Utiliser une autre adresse e-mail
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-12 space-y-5">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ton adresse e-mail"
+                aria-label="Adresse e-mail"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
+              />
+
+              <label className="flex items-start gap-3 text-sm md:text-[15px] text-brown leading-relaxed cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 w-5 h-5 accent-brown shrink-0"
+                  aria-label="Consentement"
+                />
+                <span>
+                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose. Tu peux te désinscrire à tout moment.{" "}
+                  <span className="italic text-brown/60">(Conformément à la Loi 25 du Québec)</span>
+                </span>
+              </label>
+
+              {error && (
+                <p className="text-red text-sm" role="alert">{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={submitted}
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300 disabled:opacity-70"
+              >
+                {submitted ? "C'est parti ! ✨" : "Accède au guide gratuit →"}
+              </button>
+
+              {submitted && (
+                <p className="text-center text-green italic mt-2">
+                  C'est parti ! Découvre les 10 manières ci-dessous ↓
+                </p>
+              )}
+            </form>
+          )}
         </div>
       </section>
 
@@ -113,7 +162,7 @@ const Index = () => {
           className="reveal px-6 py-20 md:py-28 border-t border-brown/15"
         >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-center font-serif text-3xl md:text-5xl text-brown leading-tight">
+            <h2 className="text-center font-serif font-bold text-4xl md:text-6xl text-brown leading-tight tracking-tight">
               Avant de commencer — 4 principes pour bien utiliser l'IA
             </h2>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-14">
@@ -145,7 +194,7 @@ const Index = () => {
           className="reveal px-6 py-20 md:py-28 border-t border-brown/15"
         >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-center font-serif text-4xl md:text-6xl text-brown">
+            <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
               Les 10 manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
@@ -188,8 +237,8 @@ const Index = () => {
               Ne cherche pas à tout appliquer en même temps. Choisis une idée — celle qui t'a fait penser « ah oui, ça ! » — et teste-la cette semaine.
             </p>
 
-            <p className="text-center text-brown/50 text-xs tracking-[0.3em] uppercase mt-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
-              CEO Ose
+            <p className="text-center text-brown font-bold text-sm md:text-base tracking-[0.45em] uppercase mt-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
+              CEO OSE
             </p>
           </div>
         </section>
