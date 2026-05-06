@@ -194,7 +194,7 @@ const Index = () => {
           className="reveal px-6 py-20 md:py-28 border-t border-brown/15"
         >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-center font-serif text-4xl md:text-6xl text-brown">
+            <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
               Les 10 manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
