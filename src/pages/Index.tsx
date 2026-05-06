@@ -162,7 +162,7 @@ const Index = () => {
           className="reveal px-6 py-20 md:py-28 border-t border-brown/15"
         >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-center font-serif text-3xl md:text-5xl text-brown leading-tight">
+            <h2 className="text-center font-serif font-bold text-4xl md:text-6xl text-brown leading-tight tracking-tight">
               Avant de commencer — 4 principes pour bien utiliser l'IA
             </h2>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-14">
