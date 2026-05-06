@@ -7,8 +7,19 @@ const Index = () => {
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [returning, setReturning] = useState(false);
   const principlesRef = useRef<HTMLElement | null>(null);
   const revealRefs = useRef<HTMLElement[]>([]);
+
+  // Auto-unlock for returning subscribers
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("ceo-ose-subscribed") === "true") {
+        setSubmitted(true);
+        setReturning(true);
+      }
+    } catch {}
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -16,6 +27,10 @@ const Index = () => {
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!valid) return setError("Merci d'entrer une adresse e-mail valide.");
     if (!consent) return setError("Tu dois accepter pour recevoir le guide.");
+    try {
+      localStorage.setItem("ceo-ose-subscribed", "true");
+      localStorage.setItem("ceo-ose-email", email);
+    } catch {}
     setSubmitted(true);
     setTimeout(() => {
       principlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
