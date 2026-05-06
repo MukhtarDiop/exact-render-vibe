@@ -85,7 +85,7 @@
 
   /* 3D Flip card */
   .flip-card {
-    perspective: 1200px;
+    perspective: 1500px;
     outline: none;
     border-radius: 12px;
     cursor: pointer;
@@ -99,6 +99,7 @@
     height: 100%;
     transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
     transform-style: preserve-3d;
+    will-change: transform;
   }
   .flip-card.is-flipped .flip-inner {
     transform: rotateY(180deg);
@@ -110,6 +111,14 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+  }
+  /* Once the flip animation settles, drop GPU layer so text renders crisp */
+  .flip-card:not(.is-flipped) .flip-inner,
+  .flip-card.is-flipped .flip-inner {
+    /* keep will-change only during interaction handled above */
   }
   .flip-back {
     transform: rotateY(180deg);
