@@ -64,60 +64,94 @@ const Index = () => {
       {/* SECTION 1 — HERO */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-2xl">
-          <p className="text-center tracking-[0.4em] text-brown/70 uppercase text-xs mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
-            CEO Ose
+          <p className="text-center tracking-[0.45em] text-brown uppercase font-bold text-base md:text-xl mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
+            CEO OSE
           </p>
 
-          <h1 className="text-center font-serif text-4xl md:text-6xl leading-[1.05] text-brown">
+          <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
             10 manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
             (Promis, on ne parle pas de création de contenu)
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-12 space-y-5">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Ton adresse e-mail"
-              aria-label="Adresse e-mail"
-              className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
-            />
-
-            <label className="flex items-start gap-3 text-sm md:text-[15px] text-brown leading-relaxed cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                className="mt-1 w-5 h-5 accent-brown shrink-0"
-                aria-label="Consentement"
-              />
-              <span>
-                J'accepte de recevoir des communications par e-mail de la part de CEO Ose. Tu peux te désinscrire à tout moment.{" "}
-                <span className="italic text-brown/60">(Conformément à la Loi 25 du Québec)</span>
-              </span>
-            </label>
-
-            {error && (
-              <p className="text-red text-sm" role="alert">{error}</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={submitted}
-              className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300 disabled:opacity-70"
-            >
-              {submitted ? "C'est parti ! ✨" : "Accède au guide gratuit →"}
-            </button>
-
-            {submitted && (
-              <p className="text-center text-green italic mt-2">
-                C'est parti ! Découvre les 10 manières ci-dessous ↓
+          {returning ? (
+            <div className="mt-12 text-center space-y-5">
+              <p className="font-serif text-2xl md:text-3xl text-brown font-semibold">
+                Bon retour ! ✨
               </p>
-            )}
-          </form>
+              <p className="text-brown/70 italic">
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les 10 manières ci-dessous.
+              </p>
+              <button
+                type="button"
+                onClick={() => principlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300"
+              >
+                Accéder au guide ↓
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  try {
+                    localStorage.removeItem("ceo-ose-subscribed");
+                    localStorage.removeItem("ceo-ose-email");
+                  } catch {}
+                  setReturning(false);
+                  setSubmitted(false);
+                  setEmail("");
+                  setConsent(false);
+                }}
+                className="text-brown/60 text-sm underline hover:text-brown transition-colors"
+              >
+                Utiliser une autre adresse e-mail
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-12 space-y-5">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ton adresse e-mail"
+                aria-label="Adresse e-mail"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
+              />
+
+              <label className="flex items-start gap-3 text-sm md:text-[15px] text-brown leading-relaxed cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 w-5 h-5 accent-brown shrink-0"
+                  aria-label="Consentement"
+                />
+                <span>
+                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose. Tu peux te désinscrire à tout moment.{" "}
+                  <span className="italic text-brown/60">(Conformément à la Loi 25 du Québec)</span>
+                </span>
+              </label>
+
+              {error && (
+                <p className="text-red text-sm" role="alert">{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={submitted}
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300 disabled:opacity-70"
+              >
+                {submitted ? "C'est parti ! ✨" : "Accède au guide gratuit →"}
+              </button>
+
+              {submitted && (
+                <p className="text-center text-green italic mt-2">
+                  C'est parti ! Découvre les 10 manières ci-dessous ↓
+                </p>
+              )}
+            </form>
+          )}
         </div>
       </section>
 
