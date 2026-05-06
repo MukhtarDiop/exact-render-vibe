@@ -237,8 +237,8 @@ const Index = () => {
               Ne cherche pas à tout appliquer en même temps. Choisis une idée — celle qui t'a fait penser « ah oui, ça ! » — et teste-la cette semaine.
             </p>
 
-            <p className="text-center text-brown/50 text-xs tracking-[0.3em] uppercase mt-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
-              CEO Ose
+            <p className="text-center text-brown font-bold text-sm md:text-base tracking-[0.45em] uppercase mt-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
+              CEO OSE
             </p>
           </div>
         </section>
