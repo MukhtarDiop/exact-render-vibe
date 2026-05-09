@@ -64,14 +64,6 @@ export const flashcards: Flashcard[] = [
     tools: "NotebookLM (gratuit, de Google)",
   },
   {
-    number: "08",
-    category: "business",
-    title: "Une boîte mail qui sort du chaos",
-    body: "Des newsletters auxquelles tu ne te souviens même plus t'être abonnée, des offres promotionnelles, des notifications en tout genre… et perdues là-dedans, les vraies informations importantes.\n\nClaude in Chrome (l'extension navigateur de Claude) peut scanner ta boîte mail, identifier les e-mails promotionnels et marketing, les regrouper par expéditeur ou catégorie, et te proposer une liste de ce qui peut être supprimé en masse. Tu gardes le contrôle sur la décision finale, mais sans avoir à ouvrir chaque e-mail un par un. Une fois fait, tu peux aussi lui demander de créer des règles de filtrage pour que ta boîte reste organisée automatiquement à l'avenir.",
-    change: "Ce que tu repousses depuis des mois (voire des années) peut être fait en moins d'une heure. Et retrouver une boîte mail ordonnée, c'est un soulagement mental immédiat et concret.",
-    tools: "Claude in Chrome (extension navigateur)",
-  },
-  {
     number: "09",
     category: "famille",
     title: "« On mange quoi ? » — La question enfin réglée",
