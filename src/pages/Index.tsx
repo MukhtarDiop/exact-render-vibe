@@ -206,14 +206,23 @@ const Index = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px flex-1 bg-brown/20" />
                 <span className="text-brown tracking-[0.3em] uppercase text-xs" style={{ fontFamily: 'system-ui, sans-serif' }}>
-                  Business · 01 → 08
+                  Business · 01 → 0{business.length}
                 </span>
                 <span className="h-px flex-1 bg-brown/20" />
               </div>
               <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                {business.map((c) => (
-                  <FlipCard key={c.number} card={c} />
-                ))}
+                {business.map((c, i) => {
+                  const isLastOdd =
+                    business.length % 2 === 1 && i === business.length - 1;
+                  return (
+                    <div
+                      key={c.number}
+                      className={isLastOdd ? "md:col-span-2 md:max-w-[calc(50%-1rem)] md:mx-auto md:w-full" : ""}
+                    >
+                      <FlipCard card={c} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -222,14 +231,23 @@ const Index = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px flex-1 bg-brown/20" />
                 <span className="text-brown tracking-[0.3em] uppercase text-xs" style={{ fontFamily: 'system-ui, sans-serif' }}>
-                  Famille · 09 → 10
+                  Famille · 0{business.length + 1} → 0{business.length + famille.length}
                 </span>
                 <span className="h-px flex-1 bg-brown/20" />
               </div>
               <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                {famille.map((c) => (
-                  <FlipCard key={c.number} card={c} />
-                ))}
+                {famille.map((c, i) => {
+                  const isLastOdd =
+                    famille.length % 2 === 1 && i === famille.length - 1;
+                  return (
+                    <div
+                      key={c.number}
+                      className={isLastOdd ? "md:col-span-2 md:max-w-[calc(50%-1rem)] md:mx-auto md:w-full" : ""}
+                    >
+                      <FlipCard card={c} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
