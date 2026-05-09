@@ -32,8 +32,8 @@ export const FlipCard = ({ card }: { card: Flashcard }) => {
         </div>
 
         {/* VERSO */}
-        <div className="flip-face flip-back absolute inset-0 rounded-[12px] bg-cream text-ink border border-brown/40 p-6 md:p-7 overflow-y-auto shadow-warm">
-          <div className="text-brown/70 text-xs tracking-[0.25em] uppercase mb-2 font-sans" style={{ fontFamily: 'system-ui, sans-serif' }}>
+        <div className="flip-face flip-back absolute inset-0 rounded-[12px] bg-cream text-ink border border-brown/40 pt-7 px-6 pb-6 md:pt-8 md:px-7 md:pb-7 overflow-y-auto shadow-warm">
+          <div className="text-brown text-xs tracking-[0.2em] uppercase mb-3 font-sans font-semibold" style={{ fontFamily: 'system-ui, sans-serif' }}>
             {card.number}
           </div>
           <h4 className="font-serif font-bold text-2xl md:text-3xl leading-tight text-ink mb-4">
