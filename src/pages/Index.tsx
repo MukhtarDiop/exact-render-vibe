@@ -210,13 +210,15 @@ const Index = () => {
                 </span>
                 <span className="h-px flex-1 bg-brown/20" />
               </div>
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8" data-testid="business-grid">
                 {business.map((c, i) => {
                   const isLastOdd =
                     business.length % 2 === 1 && i === business.length - 1;
                   return (
                     <div
                       key={c.number}
+                      data-testid="card-wrapper"
+                      data-last-odd={isLastOdd ? "true" : "false"}
                       className={isLastOdd ? "md:col-span-2 md:max-w-[calc(50%-1rem)] md:mx-auto md:w-full" : ""}
                     >
                       <FlipCard card={c} />
