@@ -64,14 +64,14 @@ export const flashcards: Flashcard[] = [
     tools: "NotebookLM (gratuit, de Google)",
   },
   {
-    number: "09",
+    number: "08",
     category: "famille",
     title: "« On mange quoi ? » — La question enfin réglée",
     body: "Cette question, à 17h30, après une journée chargée, a un pouvoir de nuisance mental sous-estimé. Tu ouvres le frigo, tu regardes ce qu'il y a, et ton cerveau déjà saturé se retrouve face à une décision de plus.\n\nPrends en photo le contenu de ton réfrigérateur et de tes placards, ou liste rapidement les ingrédients disponibles. Ajoute tes contraintes : temps de préparation maximum, nombre de personnes, préférences ou allergies. En quelques secondes, tu as plusieurs propositions faisables avec ce que tu as. Tu peux même demander à l'IA de planifier les repas de toute la semaine en optimisant les ingrédients, et d'en déduire automatiquement ta liste de courses.",
     change: "Une micro-décision quotidienne qui pèse plus lourd qu'on ne le croit — éliminée.",
   },
   {
-    number: "10",
+    number: "09",
     category: "famille",
     title: "Aider ton enfant avec ses devoirs, même quand tu ne te rappelles plus tes cours de maths",
     body: "Les maths, la conjugaison au subjonctif, les fameuses règles de chimie… Tu as l'impression d'avoir tout oublié et tu ne veux pas lui donner de mauvaises explications.\n\nPhotographie l'exercice avec ton téléphone et envoie-le à l'IA. Demande-lui non pas seulement la réponse, mais la démarche complète, expliquée étape par étape, dans un langage adapté au niveau de ton enfant. Tu peux même lui demander de t'expliquer d'abord à toi, pour que tu puisses ensuite guider ton enfant plutôt que de simplement lui lire la solution.",
