@@ -282,6 +282,45 @@ const Index = () => {
           </div>
         </section>
       )}
+
+      {/* SECTION 4 — CALL TO ACTION */}
+      {submitted && (
+        <section
+          ref={(el) => { if (el) revealRefs.current[2] = el; }}
+          className="reveal px-6 py-20 md:py-28 border-t border-brown/15 bg-brown text-cream"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="tracking-[0.45em] uppercase text-cream/70 text-xs md:text-sm font-bold" style={{ fontFamily: 'system-ui, sans-serif' }}>
+              Et ensuite ?
+            </p>
+            <h2 className="mt-6 font-serif font-bold text-4xl md:text-6xl leading-tight tracking-tight">
+              Tu as des clients, mais à vouloir tout gérer toute seule, ton business t'épuise.
+            </h2>
+            <p className="mt-8 text-cream/90 text-lg md:text-xl leading-relaxed">
+              Si tu veux mettre le doigt sur ce qui te coûte vraiment du temps, de l'argent et de l'énergie dans ton business et partir avec un plan d'action clair pour :
+            </p>
+            <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
+              <li className="flex gap-3"><span aria-hidden>•</span><span>structurer ton business avec fluidité</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>déléguer ce qui t'épuise</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>incarner enfin la CEO qui gère sans tout porter.</span></li>
+            </ul>
+            <p className="mt-8 text-cream/90 text-lg md:text-xl leading-relaxed">
+              Alors, envoie-moi le mot <span className="font-serif font-bold italic">AUDIT</span> en DM sur Instagram.
+            </p>
+            <a
+              href="https://urls.fr/ywt6eG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 mt-10 min-h-[56px] px-8 rounded-[12px] bg-cream text-brown text-lg font-serif font-semibold tracking-wide hover:bg-green hover:text-cream transition-colors duration-300"
+            >
+              Envoyer AUDIT en DM 👉
+            </a>
+            <p className="mt-6 italic text-cream/70">
+              On verra si on peut travailler.
+            </p>
+          </div>
+        </section>
+      )}
     </main>
   );
 };
