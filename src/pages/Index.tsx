@@ -25,12 +25,14 @@ const Index = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (!fullName.trim()) return setError("Merci d'entrer ton nom complet.");
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!valid) return setError("Merci d'entrer une adresse e-mail valide.");
     if (!consent) return setError("Tu dois accepter pour recevoir le guide.");
     try {
       localStorage.setItem("ceo-ose-subscribed", "true");
       localStorage.setItem("ceo-ose-email", email);
+      localStorage.setItem("ceo-ose-name", fullName.trim());
     } catch {}
     setSubmitted(true);
     setTimeout(() => {
