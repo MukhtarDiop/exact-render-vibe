@@ -4,6 +4,7 @@ import { flashcards, principles } from "@/data/content";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
