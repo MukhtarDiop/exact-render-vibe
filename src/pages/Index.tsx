@@ -99,10 +99,12 @@ const Index = () => {
                   try {
                     localStorage.removeItem("ceo-ose-subscribed");
                     localStorage.removeItem("ceo-ose-email");
+                    localStorage.removeItem("ceo-ose-name");
                   } catch {}
                   setReturning(false);
                   setSubmitted(false);
                   setEmail("");
+                  setFullName("");
                   setConsent(false);
                 }}
                 className="text-brown/60 text-sm underline hover:text-brown transition-colors"
