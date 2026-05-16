@@ -113,12 +113,24 @@ const Index = () => {
           ) : (
             <form onSubmit={handleSubmit} className="mt-12 space-y-5">
               <input
+                type="text"
+                required
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Ton nom complet"
+                aria-label="Nom complet"
+                autoComplete="name"
+                maxLength={100}
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
+              />
+              <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Ton adresse e-mail"
                 aria-label="Adresse e-mail"
+                autoComplete="email"
                 className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
               />
 
