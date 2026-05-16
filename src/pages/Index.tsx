@@ -4,6 +4,7 @@ import { flashcards, principles } from "@/data/content";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -24,12 +25,14 @@ const Index = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (!fullName.trim()) return setError("Merci d'entrer ton nom complet.");
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!valid) return setError("Merci d'entrer une adresse e-mail valide.");
     if (!consent) return setError("Tu dois accepter pour recevoir le guide.");
     try {
       localStorage.setItem("ceo-ose-subscribed", "true");
       localStorage.setItem("ceo-ose-email", email);
+      localStorage.setItem("ceo-ose-name", fullName.trim());
     } catch {}
     setSubmitted(true);
     setTimeout(() => {
@@ -69,7 +72,7 @@ const Index = () => {
           </p>
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
-            10 manières d'utiliser l'IA pour alléger ta charge mentale
+            09 manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
             (Promis, on ne parle pas de création de contenu)
@@ -96,10 +99,12 @@ const Index = () => {
                   try {
                     localStorage.removeItem("ceo-ose-subscribed");
                     localStorage.removeItem("ceo-ose-email");
+                    localStorage.removeItem("ceo-ose-name");
                   } catch {}
                   setReturning(false);
                   setSubmitted(false);
                   setEmail("");
+                  setFullName("");
                   setConsent(false);
                 }}
                 className="text-brown/60 text-sm underline hover:text-brown transition-colors"
@@ -110,12 +115,24 @@ const Index = () => {
           ) : (
             <form onSubmit={handleSubmit} className="mt-12 space-y-5">
               <input
+                type="text"
+                required
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Ton nom complet"
+                aria-label="Nom complet"
+                autoComplete="name"
+                maxLength={100}
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
+              />
+              <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Ton adresse e-mail"
                 aria-label="Adresse e-mail"
+                autoComplete="email"
                 className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
               />
 
@@ -261,6 +278,45 @@ const Index = () => {
 
             <p className="text-center text-brown font-bold text-sm md:text-base tracking-[0.45em] uppercase mt-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
               CEO OSE
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 4 — CALL TO ACTION */}
+      {submitted && (
+        <section
+          ref={(el) => { if (el) revealRefs.current[2] = el; }}
+          className="reveal px-6 py-20 md:py-28 border-t border-brown/15 bg-brown text-cream"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="tracking-[0.45em] uppercase text-cream/70 text-xs md:text-sm font-bold" style={{ fontFamily: 'system-ui, sans-serif' }}>
+              Et ensuite ?
+            </p>
+            <h2 className="mt-6 font-serif font-bold text-4xl md:text-6xl leading-tight tracking-tight">
+              Tu as des clients, mais à vouloir tout gérer toute seule, ton business t'épuise.
+            </h2>
+            <p className="mt-8 text-cream/90 text-lg md:text-xl leading-relaxed">
+              Si tu veux mettre le doigt sur ce qui te coûte vraiment du temps, de l'argent et de l'énergie dans ton business et partir avec un plan d'action clair pour :
+            </p>
+            <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
+              <li className="flex gap-3"><span aria-hidden>•</span><span>structurer ton business avec fluidité</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>déléguer ce qui t'épuise</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>incarner enfin la CEO qui gère sans tout porter.</span></li>
+            </ul>
+            <p className="mt-8 text-cream/90 text-lg md:text-xl leading-relaxed">
+              Alors, envoie-moi le mot <span className="font-serif font-bold italic">AUDIT</span> en DM sur Instagram.
+            </p>
+            <a
+              href="https://urls.fr/ywt6eG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 mt-10 min-h-[56px] px-8 rounded-[12px] bg-cream text-brown text-lg font-serif font-semibold tracking-wide hover:bg-green hover:text-cream transition-colors duration-300"
+            >
+              Envoyer AUDIT en DM 👉
+            </a>
+            <p className="mt-6 italic text-cream/70">
+              On verra si on peut travailler.
             </p>
           </div>
         </section>
