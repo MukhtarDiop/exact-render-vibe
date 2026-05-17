@@ -77,7 +77,7 @@ const Index = () => {
               style={{
                 fontFamily: "'Syne', sans-serif",
                 fontWeight: 800,
-                WebkitTextStroke: "1.5px hsl(var(--brown, 25 40% 18%))",
+                WebkitTextStroke: "1.5px hsl(var(--brown))",
                 color: "transparent",
                 letterSpacing: "-0.02em",
               }}
