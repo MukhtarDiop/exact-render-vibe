@@ -73,13 +73,10 @@ const Index = () => {
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
             <span
-              className="align-baseline mr-2"
+              className="mr-3 tracking-tight"
               style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 800,
-                WebkitTextStroke: "1.5px hsl(var(--brown))",
-                color: "transparent",
-                letterSpacing: "-0.02em",
+                fontFamily: "'Archivo Black', sans-serif",
+                fontWeight: 900,
               }}
             >
               09
