@@ -305,15 +305,7 @@ const Index = () => {
               Si tu es prêt(e) à changer ça, envoie <span className="font-serif font-bold italic">AUDIT</span> en DM.
             </p>
             <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              On démarre ensemble. 👉{" "}
-              <a
-                href="https://urls.fr/ywt6eG"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-4 hover:text-green transition-colors break-all"
-              >
-                https://urls.fr/ywt6eG
-              </a>
+              On démarre ensemble.
             </p>
             <div className="mt-10 text-center">
               <a
