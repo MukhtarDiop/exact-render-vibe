@@ -72,7 +72,19 @@ const Index = () => {
           </p>
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
-            09 manières d'utiliser l'IA pour alléger ta charge mentale
+            <span
+              className="align-baseline mr-2"
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 800,
+                WebkitTextStroke: "1.5px hsl(var(--brown))",
+                color: "transparent",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              09
+            </span>
+            manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
             (Promis, on ne parle pas de création de contenu)
