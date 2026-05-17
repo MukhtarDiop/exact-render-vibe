@@ -84,7 +84,7 @@ const Index = () => {
                 Bon retour ! ✨
               </p>
               <p className="text-brown/70 italic">
-                Tu as déjà accès au guide. Découvre (ou redécouvre) les 10 manières ci-dessous.
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les 09 manières ci-dessous.
               </p>
               <button
                 type="button"
@@ -164,7 +164,7 @@ const Index = () => {
 
               {submitted && (
                 <p className="text-center text-green italic mt-2">
-                  C'est parti ! Découvre les 10 manières ci-dessous ↓
+                  C'est parti ! Découvre les 09 manières ci-dessous ↓
                 </p>
               )}
             </form>
