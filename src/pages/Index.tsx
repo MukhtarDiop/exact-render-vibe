@@ -93,7 +93,7 @@ const Index = () => {
                 Bon retour ! ✨
               </p>
               <p className="text-brown/70 italic">
-                Tu as déjà accès au guide. Découvre (ou redécouvre) les 09 manières ci-dessous.
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les <span style={{ fontFamily: "'Archivo Black', sans-serif" }}>09</span> manières ci-dessous.
               </p>
               <button
                 type="button"
@@ -173,7 +173,7 @@ const Index = () => {
 
               {submitted && (
                 <p className="text-center text-green italic mt-2">
-                  C'est parti ! Découvre les 09 manières ci-dessous ↓
+                  C'est parti ! Découvre les <span style={{ fontFamily: "'Archivo Black', sans-serif" }}>09</span> manières ci-dessous ↓
                 </p>
               )}
             </form>
@@ -221,7 +221,7 @@ const Index = () => {
         >
           <div className="max-w-5xl mx-auto">
             <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
-              Les 09 manières
+              Les <span style={{ fontFamily: "'Archivo Black', sans-serif" }}>09</span> manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
               Survole une carte pour la retourner
