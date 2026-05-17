@@ -290,10 +290,7 @@ const Index = () => {
           className="reveal px-6 py-20 md:py-28 border-t border-brown/15 bg-brown text-cream"
         >
           <div className="max-w-3xl mx-auto">
-            <p className="text-center tracking-[0.45em] uppercase text-cream/70 text-xs md:text-sm font-bold" style={{ fontFamily: 'system-ui, sans-serif' }}>
-              Call to Action CEO OSE
-            </p>
-            <h2 className="mt-8 text-center font-serif font-bold text-3xl md:text-5xl leading-tight tracking-tight">
+            <h2 className="text-center font-serif font-bold text-3xl md:text-5xl leading-tight tracking-tight">
               Tu gères tout seul(e) et ça t'épuise.
             </h2>
             <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
@@ -308,15 +305,7 @@ const Index = () => {
               Si tu es prêt(e) à changer ça, envoie <span className="font-serif font-bold italic">AUDIT</span> en DM.
             </p>
             <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              On démarre ensemble. 👉{" "}
-              <a
-                href="https://urls.fr/ywt6eG"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-4 hover:text-green transition-colors break-all"
-              >
-                https://urls.fr/ywt6eG
-              </a>
+              On démarre ensemble.
             </p>
             <div className="mt-10 text-center">
               <a
