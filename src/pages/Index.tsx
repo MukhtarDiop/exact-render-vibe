@@ -72,7 +72,7 @@ const Index = () => {
           </p>
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
-            <span className="mr-3 align-baseline" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span>
+            <span className="mr-3 align-baseline text-[0.85em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span>
             manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
@@ -213,7 +213,7 @@ const Index = () => {
         >
           <div className="max-w-5xl mx-auto">
             <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
-              Les <span style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières
+              Les <span className="text-[0.85em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
               Survole une carte pour la retourner
