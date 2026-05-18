@@ -85,7 +85,7 @@ const Index = () => {
                 Bon retour ! ✨
               </p>
               <p className="text-brown/70 italic">
-                Tu as déjà accès au guide. Découvre (ou redécouvre) les <span className="font-serif font-bold">09</span> manières ci-dessous.
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les <span style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières ci-dessous.
               </p>
               <button
                 type="button"
