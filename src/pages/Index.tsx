@@ -213,7 +213,7 @@ const Index = () => {
         >
           <div className="max-w-5xl mx-auto">
             <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
-              Les <span style={{ fontFamily: "'Archivo Black', sans-serif" }}>09</span> manières
+              Les <span className="font-serif font-bold text-[1.25em]">09</span> manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
               Survole une carte pour la retourner
