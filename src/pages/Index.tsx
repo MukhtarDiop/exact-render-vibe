@@ -72,7 +72,7 @@ const Index = () => {
           </p>
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
-            <span className="mr-3 align-baseline text-[0.85em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span>
+            <span className="mr-3 align-baseline text-[1em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span>
             manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
