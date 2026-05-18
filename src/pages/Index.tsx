@@ -165,7 +165,7 @@ const Index = () => {
 
               {submitted && (
                 <p className="text-center text-green italic mt-2">
-                  C'est parti ! Découvre les <span style={{ fontFamily: "'Archivo Black', sans-serif" }}>09</span> manières ci-dessous ↓
+                  C'est parti ! Découvre les <span className="font-serif font-bold">09</span> manières ci-dessous ↓
                 </p>
               )}
             </form>
