@@ -74,7 +74,7 @@ export const flashcards: Flashcard[] = [
     number: "09",
     category: "famille",
     title: "Aider ton enfant avec ses devoirs, même quand tu ne te rappelles plus tes cours de maths",
-    body: "Les maths, la conjugaison au subjonctif, les fameuses règles de chimie… Tu as tout oublié et ton enfant compte sur toi pour l'aider avec ses devoirs.\n\nAvec l'IA, tu prends en photo l'exercice.\nTu lui demandes, non pas seulement la réponse, mas la démarche complète, expliquée étape par étape, dans un langage adapté au niveau de ton enfant. \n\nTu peux même lui demander de t'expliquer d'abord à toi, pour que tu puisses ensuite guider ton enfant plutôt que de simplement lui lire la solution.\n",
+    body: "Les maths, la conjugaison au subjonctif, les fameuses règles de chimie… Tu as tout oublié et ton enfant compte sur toi pour l'aider avec ses devoirs.\n\nAvec l'IA, tu prends en photo l'exercice.\nTu lui demandes, non pas seulement la réponse, mais la démarche complète, expliquée étape par étape, dans un langage adapté au niveau de ton enfant. \n\nTu peux même lui demander de t'expliquer d'abord à toi, pour que tu puisses ensuite guider ton enfant plutôt que de simplement lui lire la solution.\n",
     change: "Un moment potentiellement stressant devient un moment de pure connexion avec ton enfant.",
   },
 ];
