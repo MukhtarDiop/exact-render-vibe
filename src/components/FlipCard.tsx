@@ -39,7 +39,7 @@ export const FlipCard = ({ card }: { card: Flashcard }) => {
           <h4 className="font-serif font-bold text-2xl md:text-3xl leading-tight text-ink mb-4">
             {card.title}
           </h4>
-          <div className="space-y-3 text-[15px] md:text-base leading-relaxed text-ink/90">
+          <div className="space-y-3 text-[15px] md:text-base leading-relaxed text-ink/90 whitespace-pre-line">
             {card.body.split("\n\n").map((p, i) => (
               <p key={i}>{p}</p>
             ))}
