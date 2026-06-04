@@ -67,7 +67,7 @@ const Index = () => {
       {/* SECTION 1 — HERO */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-2xl">
-          <p className="text-center tracking-[0.45em] text-brown uppercase font-bold text-base md:text-xl mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
+          <p className="text-center tracking-[0.45em] text-brown uppercase font-normal text-base md:text-xl mb-12" style={{ fontFamily: 'system-ui, sans-serif' }}>
             CEO OSE
           </p>
 
@@ -292,10 +292,10 @@ const Index = () => {
         >
           <div className="max-w-3xl mx-auto">
             <h2 className="text-center font-serif font-bold text-3xl md:text-5xl leading-tight tracking-tight">
-              Tu gères tout seul(e) et ça t'épuise.
+              Tu gères tout toute seule et ça t'épuise.
             </h2>
-            <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              C'est le moment de voir clair :
+            <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center font-bold">
+              C'est le moment d'avoir une idée claire de :
             </p>
             <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
               <li className="flex gap-3"><span aria-hidden>•</span><span>Où part vraiment ton temps et ton argent</span></li>
