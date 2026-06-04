@@ -72,7 +72,7 @@ const Index = () => {
           </p>
 
           <h1 className="text-center font-serif font-bold text-5xl md:text-7xl leading-[1.02] text-brown tracking-tight">
-            <span className="mr-3 align-baseline text-[1em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span>
+            <span className="mr-3 align-baseline text-[1em]" style={{ fontFamily: "'Abril Fatface', serif" }}>9</span>
             manières d'utiliser l'IA pour alléger ta charge mentale
           </h1>
           <p className="text-center italic text-brown/70 mt-6 text-lg md:text-xl">
@@ -85,7 +85,7 @@ const Index = () => {
                 Bon retour ! ✨
               </p>
               <p className="text-brown/70 italic">
-                Tu as déjà accès au guide. Découvre (ou redécouvre) les <span style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières ci-dessous.
+                Tu as déjà accès au guide. Découvre (ou redécouvre) les <span style={{ fontFamily: "'Abril Fatface', serif" }}>9</span> manières ci-dessous.
               </p>
               <button
                 type="button"
@@ -120,7 +120,7 @@ const Index = () => {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="Ton nom complet"
+                placeholder="Ton nom"
                 aria-label="Nom complet"
                 autoComplete="name"
                 maxLength={100}
@@ -146,8 +146,8 @@ const Index = () => {
                   aria-label="Consentement"
                 />
                 <span>
-                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose. Tu peux te désinscrire à tout moment.{" "}
-                  <span className="italic text-brown/60">(Conformément à la Loi 25 du Québec)</span>
+                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose.{" "}<br />
+                  Tu peux te désinscrire à tout moment. ​
                 </span>
               </label>
 
@@ -165,7 +165,7 @@ const Index = () => {
 
               {submitted && (
                 <p className="text-center text-green italic mt-2">
-                  C'est parti ! Découvre les <span style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières ci-dessous ↓
+                  C'est parti ! Découvre les <span style={{ fontFamily: "'Abril Fatface', serif" }}>9</span> manières ci-dessous ↓
                 </p>
               )}
             </form>
@@ -213,7 +213,7 @@ const Index = () => {
         >
           <div className="max-w-5xl mx-auto">
             <h2 className="text-center font-serif font-bold text-5xl md:text-7xl text-brown tracking-tight">
-              Les <span className="text-[1em]" style={{ fontFamily: "'Abril Fatface', serif" }}>09</span> manières
+              Les <span className="text-[1em]" style={{ fontFamily: "'Abril Fatface', serif" }}>9</span> manières
             </h2>
             <p className="text-center italic text-brown/60 mt-4">
               Survole une carte pour la retourner
