@@ -195,7 +195,7 @@ const Index = () => {
                   <h3 className="mt-3 font-serif text-2xl md:text-3xl text-brown leading-tight">
                     {p.title}
                   </h3>
-                  <p className="mt-4 text-ink/85 text-[15px] md:text-base leading-relaxed">
+                  <p className="mt-4 text-ink/85 text-[15px] md:text-base leading-relaxed whitespace-pre-line">
                     {p.body}
                   </p>
                 </article>
