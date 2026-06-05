@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, FormEvent } from "react";
 import { FlipCard } from "@/components/FlipCard";
 import { flashcards, principles } from "@/data/content";
 
 const Index = () => {
   const [submitted, setSubmitted] = useState(false);
   const [returning, setReturning] = useState(false);
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState("");
   const principlesRef = useRef<HTMLElement | null>(null);
   const revealRefs = useRef<HTMLElement[]>([]);
 
