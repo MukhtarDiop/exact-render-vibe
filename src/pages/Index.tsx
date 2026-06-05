@@ -306,17 +306,19 @@ const Index = () => {
               dans ton business et partir avec un plan d'action clair,
             </p>
             <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              alors, envoie-moi le mot <span className="font-serif font-bold italic">AUDIT</span> en DM sur Instagram 👉{" "}
+              alors, envoie-moi le mot <span className="font-serif font-bold italic">AUDIT</span> en DM sur Instagram
+            </p>
+            <div className="mt-8 flex justify-center">
               <a
                 href="https://urls.fr/ywt6eG"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-cream transition-colors"
+                className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-cream text-brown text-lg font-serif font-semibold tracking-wide hover:bg-cream/90 transition-colors duration-300"
               >
-                https://urls.fr/ywt6eG
+                Envoyer AUDIT en DM 👉
               </a>
-            </p>
-            <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
+            </div>
+            <p className="mt-6 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
               On verra si on peut travailler ensemble.
             </p>
           </div>
