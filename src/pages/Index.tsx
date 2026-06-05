@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, FormEvent } from "react";
 import { FlipCard } from "@/components/FlipCard";
 import { flashcards, principles } from "@/data/content";
 
 const Index = () => {
   const [submitted, setSubmitted] = useState(false);
   const [returning, setReturning] = useState(false);
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState("");
   const principlesRef = useRef<HTMLElement | null>(null);
   const revealRefs = useRef<HTMLElement[]>([]);
 
@@ -89,18 +93,67 @@ const Index = () => {
               </button>
             </div>
           ) : (
-            <div className="mt-12">
-              <iframe
-                width="100%"
-                height="305"
-                src="https://a437d8a4.sibforms.com/serve/MUIFAJx0njbBO2hWtLpI3qkpbNOWAg7oMwd0y_oDrJWOTnct9w5Ci1e7TEKNd8yAgwbKtF-sI_MD385Ch-gMViJo4MfDM1EdxYTCDsYE6G1Wg5VILRviQ8cYlhEY9QTAGa2aA9fc-oZki-DJMc2FKYQ5SgxTeXLDVNygq1MO_5ta013qDoKx2DETRRqoo3MgXDPkNLLmBZcqg57oDg=="
-                frameBorder="0"
-                scrolling="auto"
-                allowFullScreen
-                style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
-                title="Inscription CEO Ose"
+            <form
+              onSubmit={(e: FormEvent) => {
+                e.preventDefault();
+                setError("");
+                if (!fullName.trim()) {
+                  setError("Merci d'indiquer ton nom.");
+                  return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  setError("Merci d'indiquer une adresse e-mail valide.");
+                  return;
+                }
+                if (!consent) {
+                  setError("Merci d'accepter de recevoir les communications.");
+                  return;
+                }
+                try {
+                  localStorage.setItem("ceo-ose-subscribed", "true");
+                  localStorage.setItem("ceo-ose-email", email);
+                  localStorage.setItem("ceo-ose-name", fullName);
+                } catch {}
+                setSubmitted(true);
+              }}
+              className="mt-12 space-y-4"
+            >
+              <input
+                type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Ton nom"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/30 text-brown placeholder:text-brown/50 focus:outline-none focus:border-brown transition-colors"
               />
-            </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ton e-mail"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/30 text-brown placeholder:text-brown/50 focus:outline-none focus:border-brown transition-colors"
+              />
+              <label className="flex items-start gap-3 text-brown/80 text-sm cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 accent-brown"
+                />
+                <span>
+                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose.{"\n"}
+                  Tu peux te désinscrire à tout moment.
+                </span>
+              </label>
+              {error && (
+                <p className="text-red-700 text-sm">{error}</p>
+              )}
+              <button
+                type="submit"
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300"
+              >
+                Recevoir le guide ↓
+              </button>
+            </form>
           )}
         </div>
       </section>
@@ -229,7 +282,7 @@ const Index = () => {
             <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
               Si tu veux mettre le doigt sur ce qui te coûte vraiment :
             </p>
-            <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
+            <ul className="mt-6 space-y-3 mx-auto w-fit text-cream/90 text-base md:text-lg">
               <li className="flex gap-3"><span aria-hidden>•</span><span>du temps</span></li>
               <li className="flex gap-3"><span aria-hidden>•</span><span>de l'argent</span></li>
               <li className="flex gap-3"><span aria-hidden>•</span><span>et de l'énergie</span></li>
