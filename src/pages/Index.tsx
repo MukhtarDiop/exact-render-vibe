@@ -292,32 +292,33 @@ const Index = () => {
         >
           <div className="max-w-3xl mx-auto">
             <h2 className="text-center font-serif font-bold text-3xl md:text-5xl leading-tight tracking-tight">
-              Tu gères tout toute seule et ça t'épuise.
+              Tu es épuisée par ton business?
             </h2>
-            <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center font-bold">
-              C'est le moment d'avoir une idée claire de :
+            <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
+              Si tu veux mettre le doigt sur ce qui te coûte vraiment :
             </p>
             <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
-              <li className="flex gap-3"><span aria-hidden>•</span><span>Où part vraiment ton temps et ton argent</span></li>
-              <li className="flex gap-3"><span aria-hidden>•</span><span>Ce que tu dois déléguer d'urgence</span></li>
-              <li className="flex gap-3"><span aria-hidden>•</span><span>Comment diriger sans te perdre</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>du temps</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>de l'argent</span></li>
+              <li className="flex gap-3"><span aria-hidden>•</span><span>et de l'énergie</span></li>
             </ul>
             <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              Si tu es prêt(e) à changer ça, envoie <span className="font-serif font-bold italic">AUDIT</span> en DM.
+              dans ton business et partir avec un plan d'action clair,
             </p>
             <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
-              On démarre ensemble.
-            </p>
-            <div className="mt-10 text-center">
+              alors, envoie-moi le mot <span className="font-serif font-bold italic">AUDIT</span> en DM sur Instagram 👉{" "}
               <a
                 href="https://urls.fr/ywt6eG"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-h-[56px] px-8 rounded-[12px] bg-cream text-brown text-lg font-serif font-semibold tracking-wide hover:bg-green hover:text-cream transition-colors duration-300"
+                className="underline hover:text-cream transition-colors"
               >
-                Envoyer AUDIT en DM 👉
+                https://urls.fr/ywt6eG
               </a>
-            </div>
+            </p>
+            <p className="mt-4 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
+              On verra si on peut travailler ensemble.
+            </p>
           </div>
         </section>
       )}
