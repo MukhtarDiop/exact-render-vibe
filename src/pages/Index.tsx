@@ -229,7 +229,7 @@ const Index = () => {
             <p className="mt-10 text-cream/90 text-lg md:text-xl leading-relaxed text-center">
               Si tu veux mettre le doigt sur ce qui te coûte vraiment :
             </p>
-            <ul className="mt-6 space-y-3 text-left max-w-xl mx-auto text-cream/90 text-base md:text-lg">
+            <ul className="mt-6 space-y-3 mx-auto w-fit text-cream/90 text-base md:text-lg">
               <li className="flex gap-3"><span aria-hidden>•</span><span>du temps</span></li>
               <li className="flex gap-3"><span aria-hidden>•</span><span>de l'argent</span></li>
               <li className="flex gap-3"><span aria-hidden>•</span><span>et de l'énergie</span></li>
