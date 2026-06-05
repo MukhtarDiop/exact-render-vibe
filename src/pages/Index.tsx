@@ -1,12 +1,8 @@
-import { useEffect, useRef, useState, FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FlipCard } from "@/components/FlipCard";
 import { flashcards, principles } from "@/data/content";
 
 const Index = () => {
-  const [email, setEmail] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [returning, setReturning] = useState(false);
   const principlesRef = useRef<HTMLElement | null>(null);
@@ -22,23 +18,6 @@ const Index = () => {
     } catch {}
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    if (!fullName.trim()) return setError("Merci d'entrer ton nom complet.");
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!valid) return setError("Merci d'entrer une adresse e-mail valide.");
-    if (!consent) return setError("Tu dois accepter pour recevoir le guide.");
-    try {
-      localStorage.setItem("ceo-ose-subscribed", "true");
-      localStorage.setItem("ceo-ose-email", email);
-      localStorage.setItem("ceo-ose-name", fullName.trim());
-    } catch {}
-    setSubmitted(true);
-    setTimeout(() => {
-      principlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 200);
-  };
 
   // Reveal on scroll once submitted
   useEffect(() => {
@@ -104,9 +83,6 @@ const Index = () => {
                   } catch {}
                   setReturning(false);
                   setSubmitted(false);
-                  setEmail("");
-                  setFullName("");
-                  setConsent(false);
                 }}
                 className="text-brown/60 text-sm underline hover:text-brown transition-colors"
               >
@@ -114,61 +90,18 @@ const Index = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-12 space-y-5">
-              <input
-                type="text"
-                required
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                placeholder="Ton nom"
-                aria-label="Nom complet"
-                autoComplete="name"
-                maxLength={100}
-                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
+            <div className="mt-12">
+              <iframe
+                width="100%"
+                height="305"
+                src="https://a437d8a4.sibforms.com/serve/MUIFAJx0njbBO2hWtLpI3qkpbNOWAg7oMwd0y_oDrJWOTnct9w5Ci1e7TEKNd8yAgwbKtF-sI_MD385Ch-gMViJo4MfDM1EdxYTCDsYE6G1Wg5VILRviQ8cYlhEY9QTAGa2aA9fc-oZki-DJMc2FKYQ5SgxTeXLDVNygq1MO_5ta013qDoKx2DETRRqoo3MgXDPkNLLmBZcqg57oDg=="
+                frameBorder="0"
+                scrolling="auto"
+                allowFullScreen
+                style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
+                title="Inscription CEO Ose"
               />
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ton adresse e-mail"
-                aria-label="Adresse e-mail"
-                autoComplete="email"
-                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/40 text-brown placeholder:text-brown/50 text-base focus:outline-none focus:border-brown focus:ring-2 focus:ring-brown/20 transition"
-              />
-
-              <label className="flex items-start gap-3 text-sm md:text-[15px] text-brown leading-relaxed cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={consent}
-                  onChange={(e) => setConsent(e.target.checked)}
-                  className="mt-1 w-5 h-5 accent-brown shrink-0"
-                  aria-label="Consentement"
-                />
-                <span>
-                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose.{" "}<br />
-                  Tu peux te désinscrire à tout moment. ​
-                </span>
-              </label>
-
-              {error && (
-                <p className="text-red text-sm" role="alert">{error}</p>
-              )}
-
-              <button
-                type="submit"
-                disabled={submitted}
-                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300 disabled:opacity-70"
-              >
-                {submitted ? "C'est parti ! ✨" : "Accède au guide gratuit →"}
-              </button>
-
-              {submitted && (
-                <p className="text-center text-green italic mt-2">
-                  C'est parti ! Découvre les <span style={{ fontFamily: "'Abril Fatface', serif" }}>9</span> manières ci-dessous ↓
-                </p>
-              )}
-            </form>
+            </div>
           )}
         </div>
       </section>
