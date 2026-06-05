@@ -94,7 +94,7 @@ const Index = () => {
             </div>
           ) : (
             <form
-              onSubmit={(e: FormEvent) => {
+              onSubmit={async (e: FormEvent) => {
                 e.preventDefault();
                 setError("");
                 if (!fullName.trim()) {
@@ -110,10 +110,22 @@ const Index = () => {
                   return;
                 }
                 try {
+                  const res = await fetch("https://n8n.srv1171130.hstgr.cloud/webhook/form-signup", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email }),
+                  });
+                  if (!res.ok) throw new Error("Network error");
+                } catch {
+                  setError("Une erreur est survenue. Merci de réessayer.");
+                  return;
+                }
+                try {
                   localStorage.setItem("ceo-ose-subscribed", "true");
                   localStorage.setItem("ceo-ose-email", email);
                   localStorage.setItem("ceo-ose-name", fullName);
                 } catch {}
+                toast.success("Merci ! Ton guide est débloqué ci-dessous.");
                 setSubmitted(true);
               }}
               className="mt-12 space-y-4"
