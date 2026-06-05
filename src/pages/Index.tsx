@@ -18,7 +18,6 @@ const Index = () => {
     } catch {}
   }, []);
 
-
   // Reveal on scroll once submitted
   useEffect(() => {
     if (!submitted) return;
