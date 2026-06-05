@@ -93,18 +93,67 @@ const Index = () => {
               </button>
             </div>
           ) : (
-            <div className="mt-12">
-              <iframe
-                width="100%"
-                height="305"
-                src="https://a437d8a4.sibforms.com/serve/MUIFAJx0njbBO2hWtLpI3qkpbNOWAg7oMwd0y_oDrJWOTnct9w5Ci1e7TEKNd8yAgwbKtF-sI_MD385Ch-gMViJo4MfDM1EdxYTCDsYE6G1Wg5VILRviQ8cYlhEY9QTAGa2aA9fc-oZki-DJMc2FKYQ5SgxTeXLDVNygq1MO_5ta013qDoKx2DETRRqoo3MgXDPkNLLmBZcqg57oDg=="
-                frameBorder="0"
-                scrolling="auto"
-                allowFullScreen
-                style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
-                title="Inscription CEO Ose"
+            <form
+              onSubmit={(e: FormEvent) => {
+                e.preventDefault();
+                setError("");
+                if (!fullName.trim()) {
+                  setError("Merci d'indiquer ton nom.");
+                  return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  setError("Merci d'indiquer une adresse e-mail valide.");
+                  return;
+                }
+                if (!consent) {
+                  setError("Merci d'accepter de recevoir les communications.");
+                  return;
+                }
+                try {
+                  localStorage.setItem("ceo-ose-subscribed", "true");
+                  localStorage.setItem("ceo-ose-email", email);
+                  localStorage.setItem("ceo-ose-name", fullName);
+                } catch {}
+                setSubmitted(true);
+              }}
+              className="mt-12 space-y-4"
+            >
+              <input
+                type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Ton nom"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/30 text-brown placeholder:text-brown/50 focus:outline-none focus:border-brown transition-colors"
               />
-            </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ton e-mail"
+                className="w-full min-h-[52px] px-5 rounded-[12px] bg-cream border border-brown/30 text-brown placeholder:text-brown/50 focus:outline-none focus:border-brown transition-colors"
+              />
+              <label className="flex items-start gap-3 text-brown/80 text-sm cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 accent-brown"
+                />
+                <span>
+                  J'accepte de recevoir des communications par e-mail de la part de CEO Ose.{"\n"}
+                  Tu peux te désinscrire à tout moment.
+                </span>
+              </label>
+              {error && (
+                <p className="text-red-700 text-sm">{error}</p>
+              )}
+              <button
+                type="submit"
+                className="w-full min-h-[52px] rounded-[12px] bg-brown text-cream text-lg font-serif font-semibold tracking-wide hover:bg-green transition-colors duration-300"
+              >
+                Recevoir le guide ↓
+              </button>
+            </form>
           )}
         </div>
       </section>
