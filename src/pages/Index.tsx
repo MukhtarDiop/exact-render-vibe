@@ -1,3 +1,4 @@
+// sync: trigger GitHub push
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { toast } from "sonner";
 import { FlipCard } from "@/components/FlipCard";
